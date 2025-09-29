@@ -15,6 +15,13 @@ export default function Section2Page() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center sm:text-left">Section II : Évolution des Pratiques</h1>
           </div>
 
+          {/* Bouton Commencer */}
+          <div className="mb-8 text-center">
+            <button className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-700 transition-colors shadow-lg">
+              Commencer la Section II
+            </button>
+          </div>
+
           <div className="prose prose-lg max-w-none">
             <div className="bg-orange-50 border-l-4 border-orange-500 p-6 mb-8">
               <h2 className="text-xl font-semibold text-orange-900 mb-3 flex items-center gap-2">

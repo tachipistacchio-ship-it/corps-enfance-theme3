@@ -112,6 +112,13 @@ export default function CasPratiquesPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center sm:text-left">Cas Pratiques</h1>
           </div>
 
+          {/* Bouton Commencer */}
+          <div className="mb-8 text-center">
+            <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-700 transition-colors shadow-lg">
+              Commencer les Cas Pratiques
+            </button>
+          </div>
+
           <div className="mb-6 sm:mb-8">
             <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 sm:p-6 rounded">
               <h2 className="text-base sm:text-lg font-semibold text-indigo-900 mb-2 sm:mb-3">Objectifs</h2>
