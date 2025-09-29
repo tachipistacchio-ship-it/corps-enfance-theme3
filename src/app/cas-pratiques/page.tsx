@@ -112,43 +112,20 @@ export default function CasPratiquesPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center sm:text-left">Cas Pratiques</h1>
           </div>
 
-          {/* Bouton Commencer */}
-          <div className="mb-8 text-center">
-            <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-700 transition-colors shadow-lg">
-              Commencer les Cas Pratiques
-            </button>
-          </div>
-
-          <div className="mb-6 sm:mb-8">
-            <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 sm:p-6 rounded">
-              <h2 className="text-base sm:text-lg font-semibold text-indigo-900 mb-2 sm:mb-3">Objectifs</h2>
-              <p className="text-indigo-800 mb-3 sm:mb-4 text-sm sm:text-base">
-                Ces cas pratiques vous permettent d&apos;appliquer vos connaissances sur l&apos;histoire 
-                des puéricultures à des situations concrètes. Analysez chaque scenario en 
-                mobilisant les concepts étudiés.
-              </p>
-              <div className="bg-white p-3 sm:p-4 rounded">
-                <p className="text-indigo-900 font-medium text-sm sm:text-base">
-                  💡 <strong>Conseil :</strong> Prenez le temps de réfléchir avant de consulter les corrections.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {!analysisStarted ? (
             <div className="text-center py-8">
               <div className="mb-6">
                 <p className="text-lg text-gray-700 mb-4">
-                  Mettez en pratique vos connaissances avec des cas concrets d'analyse historique.
+                  Analysez des situations concrètes en appliquant vos connaissances historiques.
                 </p>
                 <div className="bg-purple-50 p-4 rounded-lg mb-6">
                   <h3 className="font-semibold text-purple-900 mb-2">Ce que vous allez analyser :</h3>
                   <ul className="text-purple-800 text-sm space-y-1">
-                    <li>• Pratiques de puériculture du XIXe siècle</li>
-                    <li>• Évolution des approches alimentaires</li>
-                    <li>• Impact des théories de Françoise Dolto</li>
-                    <li>• Conflits générationnels et transformations sociales</li>
-                    <li>• Application des concepts théoriques à des situations réelles</li>
+                    <li>• Pratiques du XIXe siècle et puériculture pastorienne</li>
+                    <li>• Évolution des pratiques alimentaires</li>
+                    <li>• Impact de Françoise Dolto sur l'éducation</li>
+                    <li>• Méthodologies d'analyse historique</li>
+                    <li>• Enjeux sociaux et transformations</li>
                   </ul>
                 </div>
               </div>
@@ -160,120 +137,157 @@ export default function CasPratiquesPage() {
               </button>
             </div>
           ) : (
-            <div className="space-y-4 sm:space-y-6">
-
-            {cases.map((casePractice) => (
-              <div key={casePractice.id} className="border border-gray-200 rounded-lg overflow-hidden">
-                <button
-                  onClick={() => toggleCase(casePractice.id)}
-                  className="w-full p-4 sm:p-6 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between"
-                >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-gray-600 flex-shrink-0" />
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                      Cas {casePractice.id} : {casePractice.title}
-                    </h3>
+            <div>
+              <div className="mb-6 sm:mb-8">
+                <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 sm:p-6 rounded">
+                  <h2 className="text-base sm:text-lg font-semibold text-indigo-900 mb-2 sm:mb-3">Objectifs</h2>
+                  <p className="text-indigo-800 mb-3 sm:mb-4 text-sm sm:text-base">
+                    Ces cas pratiques vous permettent d&apos;appliquer vos connaissances sur l&apos;histoire 
+                    des puéricultures à des situations concrètes. Analysez chaque scenario en 
+                    mobilisant les concepts étudiés.
+                  </p>
+                  <div className="bg-white p-3 sm:p-4 rounded">
+                    <p className="text-indigo-900 font-medium text-sm sm:text-base">
+                      💡 <strong>Conseil :</strong> Prenez le temps de réfléchir avant de consulter les corrections.
+                    </p>
                   </div>
-                  {expandedCase === casePractice.id ? (
-                    <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 flex-shrink-0" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 flex-shrink-0" />
-                  )}
-                </button>
+                </div>
+              </div>
 
-                {expandedCase === casePractice.id && (
-                  <div className="p-4 sm:p-6 bg-white">
-                    <div className="mb-4 sm:mb-6">
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Scenario</h4>
-                      <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border-l-4 border-blue-500">
-                        <p className="text-blue-800 text-sm sm:text-base leading-relaxed">{casePractice.scenario}</p>
+              <div className="space-y-6 sm:space-y-8">
+                {cases.map((casePractice) => (
+                  <div key={casePractice.id} className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <div className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{casePractice.title}</h3>
+                        <button
+                          onClick={() => toggleCase(casePractice.id)}
+                          className="flex items-center gap-2 px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors text-sm font-medium self-start sm:self-auto"
+                        >
+                          {expandedCase === casePractice.id ? (
+                            <>
+                              <ChevronDown className="h-4 w-4" />
+                              Réduire
+                            </>
+                          ) : (
+                            <>
+                              <ChevronRight className="h-4 w-4" />
+                              Développer
+                            </>
+                          )}
+                        </button>
                       </div>
-                    </div>
 
-                    <div className="mb-4 sm:mb-6">
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Questions à analyser</h4>
-                      <ol className="space-y-2 sm:space-y-3">
-                        {casePractice.questions.map((question, index) => (
-                          <li key={index} className="flex gap-2 sm:gap-3">
-                            <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs sm:text-sm font-medium flex-shrink-0 mt-0.5">
-                              {index + 1}
-                            </span>
-                            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{question}</p>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
+                      {expandedCase === casePractice.id && (
+                        <div className="space-y-4 sm:space-y-6">
+                          <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
+                            <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Scenario</h4>
+                            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{casePractice.scenario}</p>
+                          </div>
 
-                    <div className="mb-4 sm:mb-6">
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Méthodologie</h4>
-                      <div className="bg-yellow-50 p-3 sm:p-4 rounded-lg">
-                        <ul className="space-y-1 sm:space-y-2">
-                          {casePractice.methodology.map((step, index) => (
-                            <li key={index} className="flex items-start gap-2">
-                              <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-600 mt-1 flex-shrink-0" />
-                              <span className="text-yellow-800 text-sm sm:text-base leading-relaxed">{step}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                          <div className="bg-blue-50 p-4 sm:p-6 rounded-lg">
+                            <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Questions d&apos;analyse</h4>
+                            <ol className="space-y-2 sm:space-y-3">
+                              {casePractice.questions.map((question, index) => (
+                                <li key={index} className="flex items-start gap-2 sm:gap-3">
+                                  <span className="bg-blue-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                    {index + 1}
+                                  </span>
+                                  <span className="text-blue-900 text-sm sm:text-base leading-relaxed">{question}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
 
-                    <div className="border-t pt-4 sm:pt-6">
-                      <button
-                        onClick={() => toggleAnswers(casePractice.id)}
-                        className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 transition-colors mb-3 sm:mb-4 text-sm sm:text-base w-full sm:w-auto"
-                      >
-                        {showAnswers[casePractice.id] ? 'Masquer les corrections' : 'Voir les corrections'}
-                      </button>
+                          <div className="bg-yellow-50 p-4 sm:p-6 rounded-lg">
+                            <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Méthodologie</h4>
+                            <div className="bg-yellow-50 p-3 sm:p-4 rounded-lg">
+                              <ul className="space-y-1 sm:space-y-2">
+                                {casePractice.methodology.map((step, index) => (
+                                  <li key={index} className="flex items-start gap-2">
+                                    <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-600 mt-1 flex-shrink-0" />
+                                    <span className="text-yellow-800 text-sm sm:text-base leading-relaxed">{step}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
 
-                      {showAnswers[casePractice.id] && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-4 sm:p-6">
-                          <h4 className="text-base sm:text-lg font-semibold text-green-900 mb-3 sm:mb-4">Corrections détaillées</h4>
-                          <div className="space-y-3 sm:space-y-4">
-                            {casePractice.answers.map((answer, index) => (
-                              <div key={index} className="bg-white p-3 sm:p-4 rounded border-l-4 border-green-500">
-                                <p className="font-medium text-green-900 mb-1 sm:mb-2 text-sm sm:text-base">
-                                  Question {index + 1} :
-                                </p>
-                                <p className="text-green-800 text-sm sm:text-base leading-relaxed">{answer}</p>
+                          <div className="border-t pt-4 sm:pt-6">
+                            <button
+                              onClick={() => toggleAnswers(casePractice.id)}
+                              className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm sm:text-base"
+                            >
+                              {showAnswers[casePractice.id] ? 'Masquer les corrections' : 'Voir les corrections'}
+                            </button>
+
+                            {showAnswers[casePractice.id] && (
+                              <div className="mt-4 sm:mt-6 bg-green-50 p-4 sm:p-6 rounded-lg">
+                                <h4 className="text-base sm:text-lg font-semibold text-green-900 mb-3 sm:mb-4">Éléments de correction</h4>
+                                <div className="space-y-3 sm:space-y-4">
+                                  {casePractice.answers.map((answer, index) => (
+                                    <div key={index} className="bg-white p-3 sm:p-4 rounded border-l-4 border-green-500">
+                                      <div className="flex items-start gap-2 sm:gap-3">
+                                        <span className="bg-green-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                          {index + 1}
+                                        </span>
+                                        <p className="text-green-800 text-sm sm:text-base leading-relaxed">{answer}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
                               </div>
-                            ))}
+                            )}
                           </div>
                         </div>
                       )}
                     </div>
                   </div>
-                )}
+                ))}
               </div>
-            ))}
-          </div>
 
-          <div className="mt-6 sm:mt-8 bg-gray-100 p-4 sm:p-6 rounded-lg">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Conseils pour l&apos;analyse</h3>
-            <ul className="text-gray-700 space-y-1 sm:space-y-2 text-sm sm:text-base">
-              <li>• <strong>Contextualisez :</strong> Replacez chaque situation dans son époque</li>
-              <li>• <strong>Identifiez :</strong> Repérez les concepts clés du cours</li>
-              <li>• <strong>Analysez :</strong> Examinez les causes et conséquences</li>
-              <li>• <strong>Comparez :</strong> Mettez en relation différentes approches</li>
-              <li>• <strong>Synthétisez :</strong> Dégagez les enseignements principaux</li>
-            </ul>
-          </div>
+              <div className="mt-8 sm:mt-12 bg-gray-50 border-l-4 border-gray-500 p-4 sm:p-6 rounded">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Conseils pour l&apos;analyse</h2>
+                <ul className="space-y-2 sm:space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Situez chaque cas dans son contexte historique précis</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Identifiez les influences scientifiques et sociales de l&apos;époque</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Analysez les conséquences à court et long terme des pratiques</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Établissez des liens avec les connaissances actuelles</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-6 sm:mt-8 text-center">
+                <Link 
+                  href="/quiz"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base"
+                >
+                  Continuer vers le Quiz
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="mt-4 text-center">
+                <Link 
+                  href="/"
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors text-sm sm:text-base"
+                >
+                  Retour au plan du cours
+                </Link>
+              </div>
+            </div>
           )}
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
-          <Link 
-            href="/quiz" 
-            className="bg-gray-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors text-sm sm:text-base text-center w-full sm:w-auto"
-          >
-            ← Quiz
-          </Link>
-          <Link 
-            href="/" 
-            className="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base text-center w-full sm:w-auto"
-          >
-            Retour au plan →
-          </Link>
         </div>
       </div>
     </div>
