@@ -214,6 +214,16 @@ export default function IntroductionPage() {
               </div>
             </div>
           </div>
+
+          {/* Bouton Commencer */}
+          <div className="mt-8 text-center">
+            <a 
+              href="/section-1" 
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors text-lg shadow-lg"
+            >
+              🚀 Commencer le parcours
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">

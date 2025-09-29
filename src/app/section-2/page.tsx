@@ -142,6 +142,16 @@ export default function Section2Page() {
               </ul>
             </div>
           </div>
+
+          {/* Bouton Commencer */}
+          <div className="mt-8 text-center">
+            <a 
+              href="/section-3" 
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors text-lg shadow-lg"
+            >
+              🚀 Continuer vers Section III
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-between">
