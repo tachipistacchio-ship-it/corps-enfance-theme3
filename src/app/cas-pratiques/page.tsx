@@ -86,6 +86,7 @@ const cases: CasePractice[] = [
 export default function CasPratiquesPage() {
   const [expandedCase, setExpandedCase] = useState<number | null>(null);
   const [showAnswers, setShowAnswers] = useState<{ [key: number]: boolean }>({});
+  const [analysisStarted, setAnalysisStarted] = useState(false);
 
   const toggleCase = (caseId: number) => {
     setExpandedCase(expandedCase === caseId ? null : caseId);
@@ -127,7 +128,33 @@ export default function CasPratiquesPage() {
             </div>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
+          {!analysisStarted ? (
+            <div className="text-center py-8">
+              <div className="mb-6">
+                <p className="text-lg text-gray-700 mb-4">
+                  Mettez en pratique vos connaissances avec des cas concrets d'analyse historique.
+                </p>
+                <div className="bg-purple-50 p-4 rounded-lg mb-6">
+                  <h3 className="font-semibold text-purple-900 mb-2">Ce que vous allez analyser :</h3>
+                  <ul className="text-purple-800 text-sm space-y-1">
+                    <li>• Pratiques de puériculture du XIXe siècle</li>
+                    <li>• Évolution des approches alimentaires</li>
+                    <li>• Impact des théories de Françoise Dolto</li>
+                    <li>• Conflits générationnels et transformations sociales</li>
+                    <li>• Application des concepts théoriques à des situations réelles</li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                onClick={() => setAnalysisStarted(true)}
+                className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-700 transition-colors shadow-lg"
+              >
+                Commencer l'Analyse
+              </button>
+            </div>
+          ) : (
+            <div className="space-y-4 sm:space-y-6">
+
             {cases.map((casePractice) => (
               <div key={casePractice.id} className="border border-gray-200 rounded-lg overflow-hidden">
                 <button
@@ -224,6 +251,7 @@ export default function CasPratiquesPage() {
               <li>• <strong>Synthétisez :</strong> Dégagez les enseignements principaux</li>
             </ul>
           </div>
+          )}
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">

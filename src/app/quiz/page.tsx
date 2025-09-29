@@ -76,6 +76,7 @@ const questions: Question[] = [
 ];
 
 export default function QuizPage() {
+  const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -104,6 +105,7 @@ export default function QuizPage() {
   };
 
   const resetQuiz = () => {
+    setQuizStarted(false);
     setCurrentQuestion(0);
     setSelectedAnswer(null);
     setShowResult(false);
@@ -126,7 +128,31 @@ export default function QuizPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center sm:text-left">Quiz Interactif</h1>
           </div>
 
-          {!isQuizComplete ? (
+          {!quizStarted ? (
+            <div className="text-center py-8">
+              <div className="mb-6">
+                <p className="text-lg text-gray-700 mb-4">
+                  Testez vos connaissances sur l'histoire des puéricultures avec ce quiz de 5 questions.
+                </p>
+                <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                  <h3 className="font-semibold text-blue-900 mb-2">Ce que vous allez réviser :</h3>
+                  <ul className="text-blue-800 text-sm space-y-1">
+                    <li>• La révolution pastorienne et ses impacts</li>
+                    <li>• L'évolution des pratiques alimentaires</li>
+                    <li>• Les apports de Françoise Dolto</li>
+                    <li>• Les caractéristiques de chaque époque</li>
+                    <li>• Les transformations de la puériculture moderne</li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                onClick={() => setQuizStarted(true)}
+                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors shadow-lg"
+              >
+                Commencer le Quiz
+              </button>
+            </div>
+          ) : !isQuizComplete ? (
             <div>
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-4">
