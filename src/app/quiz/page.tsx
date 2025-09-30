@@ -132,13 +132,13 @@ export default function QuizPage() {
             <div className="text-center py-8">
               <div className="mb-6">
                 <p className="text-lg text-gray-700 mb-4">
-                  Testez vos connaissances sur l'histoire des puéricultures avec ce quiz de 5 questions.
+                  Testez vos connaissances sur l&apos;histoire des puéricultures avec ce quiz de 5 questions.
                 </p>
                 <div className="bg-blue-50 p-4 rounded-lg mb-6">
                   <h3 className="font-semibold text-blue-900 mb-2">Ce que vous allez réviser :</h3>
                   <ul className="text-blue-800 text-sm space-y-1">
                     <li>• La révolution pastorienne et ses impacts</li>
-                    <li>• L'évolution des pratiques alimentaires</li>
+                    <li>• L&apos;évolution des pratiques alimentaires</li>
                     <li>• Les apports de Françoise Dolto</li>
                     <li>• Les caractéristiques de chaque époque</li>
                     <li>• Les transformations de la puériculture moderne</li>

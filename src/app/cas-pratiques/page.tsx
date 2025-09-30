@@ -123,8 +123,8 @@ export default function CasPratiquesPage() {
                   <ul className="text-purple-800 text-sm space-y-1">
                     <li>• Pratiques du XIXe siècle et puériculture pastorienne</li>
                     <li>• Évolution des pratiques alimentaires</li>
-                    <li>• Impact de Françoise Dolto sur l'éducation</li>
-                    <li>• Méthodologies d'analyse historique</li>
+                    <li>• Impact de Françoise Dolto sur l&apos;éducation</li>
+                    <li>• Méthodologies d&apos;analyse historique</li>
                     <li>• Enjeux sociaux et transformations</li>
                   </ul>
                 </div>
@@ -133,7 +133,7 @@ export default function CasPratiquesPage() {
                 onClick={() => setAnalysisStarted(true)}
                 className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-700 transition-colors shadow-lg"
               >
-                Commencer l'Analyse
+                Commencer l&apos;Analyse
               </button>
             </div>
           ) : (
