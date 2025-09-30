@@ -23,6 +23,18 @@ export default function SectionBlock({
   bgColor,
   index 
 }: SectionBlockProps) {
+  // Map explicite pour les classes de fond des boutons afin d'éviter la génération dynamique
+  const bgMap: Record<string, string> = {
+    'text-blue-600': 'bg-blue-600 hover:bg-blue-700',
+    'text-green-600': 'bg-green-600 hover:bg-green-700',
+    'text-orange-600': 'bg-orange-600 hover:bg-orange-700',
+    'text-purple-600': 'bg-purple-600 hover:bg-purple-700',
+    'text-red-600': 'bg-red-600 hover:bg-red-700',
+    'text-indigo-600': 'bg-indigo-600 hover:bg-indigo-700',
+    'text-pink-600': 'bg-pink-600 hover:bg-pink-700',
+  };
+  const buttonBgClass = bgMap[color] || 'bg-gray-900 hover:bg-gray-800';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,7 +55,10 @@ export default function SectionBlock({
                 <p className="text-sm sm:text-base text-gray-600">{description}</p>
               </div>
             </div>
-            <button className={`${color.replace('text-', 'bg-')} text-white px-4 sm:px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity text-sm sm:text-base whitespace-nowrap`}>
+            <button
+              aria-label={`Commencer ${title}`}
+              className={`${buttonBgClass} text-white px-4 sm:px-6 py-2 rounded-lg font-medium shadow-lg transition-colors text-sm sm:text-base whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900`}
+            >
               Commencer
             </button>
           </div>
